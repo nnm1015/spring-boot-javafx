@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+application {
+    mainClass = 'org.example.Launcher'
+    applicationName = 'notte-app'
+}
+
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+javafx {
+    version = '17.0.6'
+    modules = ['javafx.controls', 'javafx.graphics', 'javafx.fxml']
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'org.example.Launcher'
+        )
+    }
+}
+

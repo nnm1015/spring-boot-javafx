@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.controller.NoteController">
+
+    <MenuBar>
+        <Menu text="Файл">
+            <MenuItem text="Новый" />
+            <MenuItem text="Открыть"/>
+            <MenuItem text="Сохранить" />
+            <SeparatorMenuItem />
+            <MenuItem text="Выход" />
+        </Menu>
+        <Menu text="Правка">
+            <MenuItem text="Копировать" />
+            <MenuItem text="Вставить" />
+            <MenuItem text="Вырезать" />
+        </Menu>
+        <Menu text="Справка">
+            <MenuItem text="О программе" />
+        </Menu>
+    </MenuBar>
+
+    <ToolBar>
+        <Button text="Создать заметку" onAction="#createNote" />
+        <Button text="Сохранить заметку" />
+        <Button text="Открыть заметку" />
+        <Button text="Удалить заметку" onAction="#deleteNote" />
+        <Separator />
+        <Label text="Шрифт" />
+        <ComboBox fx:id="fontComboBox" onAction="#changeFont" />
+        <Label text="Размер" />
+        <ComboBox fx:id="fontSizeComboBox" onAction="#changeFontSize" />
+    </ToolBar>
+
+    <SplitPane dividerPositions="0.25">
+<!--        <TreeView fx:id="fileTreeView" prefWidth="200" />-->
+        <ListView fx:id="noteList"/>
+<!--        <TextArea fx:id="textArea" style="-fx-font-family: 'Courier New'; -fx-font-size: 24px; "/>-->
+        <TextArea fx:id="textArea" />
+    </SplitPane>
+</VBox>
